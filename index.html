@@ -237,7 +237,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-11-30 11:04:47" itemprop="dateModified" datetime="2022-11-30T11:04:47+08:00">2022-11-30</time>
+      <time title="修改時間：2022-11-30 12:40:58" itemprop="dateModified" datetime="2022-11-30T12:40:58+08:00">2022-11-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -260,7 +260,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">文章字數：</span>
-      <span>378</span>
+      <span>383</span>
     </span>
     <span class="post-meta-item" title="所需閱讀時間">
       <span class="post-meta-item-icon">
@@ -286,31 +286,33 @@
 <li>依照 <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/configuration.html">Alternate Theme Config</a> 方式來設定 NexT 的 config</li>
 </ul>
 <h2 id="建置流程"><a href="#建置流程" class="headerlink" title="建置流程"></a>建置流程</h2><ol>
-<li>下載 NexT 主題至 Hexo Blog 專案</li>
-</ol>
+<li><p>在 Hexo Blog 專案安裝 NexT 主題</p>
 <p>command line 進入 Hexo Blog 專案執行：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>修改 Hexo Blog 專案根目錄中的 <code>_config.yml</code> 檔案</li>
-</ol>
+<p>我的版本：v8.13.2</p>
+</li>
+<li><p>修改 Hexo Blog 專案根目錄中的 <code>_config.yml</code> 檔案</p>
 <p>將 <code>theme:</code> 的值由原先的 <code>landscape</code> 改成 <code>next</code>：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span> <span class="comment">#landscape</span></span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>於 Hexo Blog 專案根目錄建立 <code>_config.next.yml</code> 檔案</li>
-<li>填入 <code>_config.next.yml</code> 的預設資料</li>
-</ol>
+
+</li>
+<li><p>於 Hexo Blog 專案根目錄建立 <code>_config.next.yml</code> 檔案</p>
+</li>
+<li><p>填入 <code>_config.next.yml</code> 的預設資料</p>
 <p>command line 進入 Hexo Blog 專案執行：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> node_modules/hexo-theme-next/_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
 
-<ol start="5">
-<li>重新部署 Blog</li>
-</ol>
+
+</li>
+<li><p>重新部署 Blog</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
 
-<ol start="6">
-<li>瀏覽 Blog 檢查主題是否更新</li>
+
+</li>
+<li><p>瀏覽 Blog 檢查主題是否更新</p>
+</li>
 </ol>
 <h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>就是基本的下載跟修改設定檔，不過看到更新後的 Blog 還是有些發現：</p>
 <ul>
@@ -380,7 +382,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-11-30 11:02:58" itemprop="dateModified" datetime="2022-11-30T11:02:58+08:00">2022-11-30</time>
+      <time title="修改時間：2022-11-30 12:31:26" itemprop="dateModified" datetime="2022-11-30T12:31:26+08:00">2022-11-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -426,12 +428,10 @@
 <li><p>修改文章 title，使其包含 <code>[</code> 與 <code>]</code> 字元</p>
 </li>
 <li><p>使用本地預覽指令：</p>
-</li>
-</ol>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>無法正常顯示頁面</li>
+</li>
+<li><p>無法正常顯示頁面</p>
+</li>
 </ol>
 <h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">ERROR Process failed: _posts/[Hexo]-常用-Hexo-指令.md</span><br><span class="line">YAMLException: bad indentation of a mapping entry (1:15)</span><br><span class="line"></span><br><span class="line"> 1 | title: [Hexo] 常用 Hexo 指令</span><br><span class="line">-------------------^</span><br><span class="line"> 2 | <span class="built_in">date</span>: 2022-11-29 10:26:27</span><br><span class="line"> 3 | tags:</span><br><span class="line">    at generateError (D:\blog\node_modules\js-yaml\lib\loader.js:183:10)</span><br><span class="line">    at throwError (D:\blog\node_modules\js-yaml\lib\loader.js:187:9)</span><br><span class="line">    at readBlockMapping (D:\blog\node_modules\js-yaml\lib\loader.js:1182:7)</span><br><span class="line">    at composeNode (D:\blog\node_modules\js-yaml\lib\loader.js:1441:12)</span><br><span class="line">    at readDocument (D:\blog\node_modules\js-yaml\lib\loader.js:1625:3)</span><br><span class="line">    at loadDocuments (D:\blog\node_modules\js-yaml\lib\loader.js:1688:5)</span><br><span class="line">    at Object.load (D:\blog\node_modules\js-yaml\lib\loader.js:1714:19)</span><br><span class="line">    at parseYAML (D:\blog\node_modules\hexo-front-matter\lib\front_matter.js:69:23)</span><br><span class="line">    at parse (D:\blog\node_modules\hexo-front-matter\lib\front_matter.js:50:12)</span><br><span class="line">    at D:\blog\node_modules\hexo\lib\plugins\processor\post.js:93:18</span><br><span class="line">    at tryCatcher (D:\blog\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\node_modules\bluebird\js\release\promise.js:544:35)</span><br><span class="line">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at PromiseArray._resolve (D:\blog\node_modules\bluebird\js\release\promise_array.js:127:19)</span><br><span class="line">    at PromiseArray._promiseFulfilled (D:\blog\node_modules\bluebird\js\release\promise_array.js:145:14)</span><br><span class="line">    at PromiseArray._iterate (D:\blog\node_modules\bluebird\js\release\promise_array.js:115:31)</span><br><span class="line">    at PromiseArray.init [as _init] (D:\blog\node_modules\bluebird\js\release\promise_array.js:79:10)</span><br><span class="line">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:601:21)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span><br></pre></td></tr></table></figure>
 
@@ -441,12 +441,11 @@
 
 
 <h2 id="情境二"><a href="#情境二" class="headerlink" title="情境二"></a>情境二</h2><h3 id="流程-1"><a href="#流程-1" class="headerlink" title="流程"></a>流程</h3><ol>
-<li>使用建立新文章指令建立 title 包含 <code>[</code> 與 <code>]</code> 字元的文章：</li>
-</ol>
+<li><p>使用建立新文章指令建立 title 包含 <code>[</code> 與 <code>]</code> 字元的文章：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&#x27;[Hexo] title 包含特殊字元引發錯誤&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>文章建立失敗</li>
+</li>
+<li><p>文章建立失敗</p>
+</li>
 </ol>
 <h3 id="log-1"><a href="#log-1" class="headerlink" title="log"></a>log</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">YAMLException: bad indentation of a mapping entry (1:15)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> 1 | title: [Hexo] title 包含特殊字元引發錯誤</span></span><br><span class="line"><span class="string">-------------------^</span></span><br><span class="line"><span class="string"> 2 | date: 2022-11-29 04:11:40</span></span><br><span class="line"><span class="string"> 3 | tags:</span></span><br><span class="line"><span class="string">    at generateError (D:\blog\node_modules\js-yaml\lib\loader.js:183:10)</span></span><br><span class="line"><span class="string">    at throwError (D:\blog\node_modules\js-yaml\lib\loader.js:187:9)</span></span><br><span class="line"><span class="string">    at readBlockMapping (D:\blog\node_modules\js-yaml\lib\loader.js:1182:7)</span></span><br><span class="line"><span class="string">    at composeNode (D:\blog\node_modules\js-yaml\lib\loader.js:1441:12)</span></span><br><span class="line"><span class="string">    at readDocument (D:\blog\node_modules\js-yaml\lib\loader.js:1625:3)</span></span><br><span class="line"><span class="string">    at loadDocuments (D:\blog\node_modules\js-yaml\lib\loader.js:1688:5)</span></span><br><span class="line"><span class="string">    at load (D:\blog\node_modules\js-yaml\lib\loader.js:1714:19)</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\hexo\lib\hexo\post.js:282:63</span></span><br><span class="line"><span class="string">    at tryCatcher (D:\blog\node_modules\bluebird\js\release\util.js:16:23)</span></span><br><span class="line"><span class="string">    at Promise._settlePromiseFromHandler (D:\blog\node_modules\bluebird\js\release\promise.js:547:31)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:604:18)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span></span><br><span class="line"><span class="string">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span></span><br><span class="line"><span class="string">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:617:21)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span></span><br><span class="line"><span class="string">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span></span><br><span class="line"><span class="string">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\bluebird\js\release\nodeback.js:42:21</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\nunjucks\src\environment.js:41:5</span></span><br><span class="line"><span class="string">    at RawTask.call (D:\blog\node_modules\asap\asap.js:40:19)</span></span><br><span class="line"><span class="string">    at flush (D:\blog\node_modules\asap\raw.js:50:29)</span></span><br></pre></td></tr></table></figure>
 
@@ -633,7 +632,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-11-30 12:20:36" itemprop="dateModified" datetime="2022-11-30T12:20:36+08:00">2022-11-30</time>
+      <time title="修改時間：2022-11-30 12:28:13" itemprop="dateModified" datetime="2022-11-30T12:28:13+08:00">2022-11-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -656,7 +655,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">文章字數：</span>
-      <span>752</span>
+      <span>757</span>
     </span>
     <span class="post-meta-item" title="所需閱讀時間">
       <span class="post-meta-item-icon">
@@ -725,6 +724,7 @@
 <li><p>安裝 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
+<p>我的版本：v3.0.0</p>
 <p>Hexo 專門用來以 git 部署的工具</p>
 </li>
 <li><p>更改 Hexo Blog 專案根目錄中 <code>_config.yml</code> 的 <code>deploy:</code> 部分</p>

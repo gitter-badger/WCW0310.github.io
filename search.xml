@@ -54,6 +54,7 @@
 <li><p>安裝 <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a></p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
+<p>我的版本：v3.0.0</p>
 <p>Hexo 專門用來以 git 部署的工具</p>
 </li>
 <li><p>更改 Hexo Blog 專案根目錄中 <code>_config.yml</code> 的 <code>deploy:</code> 部分</p>
@@ -91,6 +92,48 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo Debug 01：Hexo 文章 title 含特殊或功能字元引發錯誤</title>
+    <url>/Hexo-Debug-01%EF%BC%9A%E6%96%87%E7%AB%A0-title-%E5%90%AB%E7%89%B9%E6%AE%8A%E6%88%96%E5%8A%9F%E8%83%BD%E5%AD%97%E5%85%83%E5%BC%95%E7%99%BC%E9%8C%AF%E8%AA%A4/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想要在文章標題開頭用些分類性標記，第一時間想到的是用 <code>[]</code> 包裹關鍵字，沒想到陸續發生了以下兩種錯誤，還好都還算是能繞開，不影響其他使用體驗。</p>
+<h2 id="情境一"><a href="#情境一" class="headerlink" title="情境一"></a>情境一</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol>
+<li><p>修改文章 title，使其包含 <code>[</code> 與 <code>]</code> 字元</p>
+</li>
+<li><p>使用本地預覽指令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>無法正常顯示頁面</p>
+</li>
+</ol>
+<h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">ERROR Process failed: _posts/[Hexo]-常用-Hexo-指令.md</span><br><span class="line">YAMLException: bad indentation of a mapping entry (1:15)</span><br><span class="line"></span><br><span class="line"> 1 | title: [Hexo] 常用 Hexo 指令</span><br><span class="line">-------------------^</span><br><span class="line"> 2 | <span class="built_in">date</span>: 2022-11-29 10:26:27</span><br><span class="line"> 3 | tags:</span><br><span class="line">    at generateError (D:\blog\node_modules\js-yaml\lib\loader.js:183:10)</span><br><span class="line">    at throwError (D:\blog\node_modules\js-yaml\lib\loader.js:187:9)</span><br><span class="line">    at readBlockMapping (D:\blog\node_modules\js-yaml\lib\loader.js:1182:7)</span><br><span class="line">    at composeNode (D:\blog\node_modules\js-yaml\lib\loader.js:1441:12)</span><br><span class="line">    at readDocument (D:\blog\node_modules\js-yaml\lib\loader.js:1625:3)</span><br><span class="line">    at loadDocuments (D:\blog\node_modules\js-yaml\lib\loader.js:1688:5)</span><br><span class="line">    at Object.load (D:\blog\node_modules\js-yaml\lib\loader.js:1714:19)</span><br><span class="line">    at parseYAML (D:\blog\node_modules\hexo-front-matter\lib\front_matter.js:69:23)</span><br><span class="line">    at parse (D:\blog\node_modules\hexo-front-matter\lib\front_matter.js:50:12)</span><br><span class="line">    at D:\blog\node_modules\hexo\lib\plugins\processor\post.js:93:18</span><br><span class="line">    at tryCatcher (D:\blog\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\node_modules\bluebird\js\release\promise.js:544:35)</span><br><span class="line">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at PromiseArray._resolve (D:\blog\node_modules\bluebird\js\release\promise_array.js:127:19)</span><br><span class="line">    at PromiseArray._promiseFulfilled (D:\blog\node_modules\bluebird\js\release\promise_array.js:145:14)</span><br><span class="line">    at PromiseArray._iterate (D:\blog\node_modules\bluebird\js\release\promise_array.js:115:31)</span><br><span class="line">    at PromiseArray.init [as _init] (D:\blog\node_modules\bluebird\js\release\promise_array.js:79:10)</span><br><span class="line">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:601:21)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span><br></pre></td></tr></table></figure>
+
+<h3 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h3><p>將 md. 檔案中 title 的內容以引號包裹可避免發生此錯誤：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">title: &#x27;[Hexo] title 包含特殊字元引發錯誤&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="情境二"><a href="#情境二" class="headerlink" title="情境二"></a>情境二</h2><h3 id="流程-1"><a href="#流程-1" class="headerlink" title="流程"></a>流程</h3><ol>
+<li><p>使用建立新文章指令建立 title 包含 <code>[</code> 與 <code>]</code> 字元的文章：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&#x27;[Hexo] title 包含特殊字元引發錯誤&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文章建立失敗</p>
+</li>
+</ol>
+<h3 id="log-1"><a href="#log-1" class="headerlink" title="log"></a>log</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">YAMLException: bad indentation of a mapping entry (1:15)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> 1 | title: [Hexo] title 包含特殊字元引發錯誤</span></span><br><span class="line"><span class="string">-------------------^</span></span><br><span class="line"><span class="string"> 2 | date: 2022-11-29 04:11:40</span></span><br><span class="line"><span class="string"> 3 | tags:</span></span><br><span class="line"><span class="string">    at generateError (D:\blog\node_modules\js-yaml\lib\loader.js:183:10)</span></span><br><span class="line"><span class="string">    at throwError (D:\blog\node_modules\js-yaml\lib\loader.js:187:9)</span></span><br><span class="line"><span class="string">    at readBlockMapping (D:\blog\node_modules\js-yaml\lib\loader.js:1182:7)</span></span><br><span class="line"><span class="string">    at composeNode (D:\blog\node_modules\js-yaml\lib\loader.js:1441:12)</span></span><br><span class="line"><span class="string">    at readDocument (D:\blog\node_modules\js-yaml\lib\loader.js:1625:3)</span></span><br><span class="line"><span class="string">    at loadDocuments (D:\blog\node_modules\js-yaml\lib\loader.js:1688:5)</span></span><br><span class="line"><span class="string">    at load (D:\blog\node_modules\js-yaml\lib\loader.js:1714:19)</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\hexo\lib\hexo\post.js:282:63</span></span><br><span class="line"><span class="string">    at tryCatcher (D:\blog\node_modules\bluebird\js\release\util.js:16:23)</span></span><br><span class="line"><span class="string">    at Promise._settlePromiseFromHandler (D:\blog\node_modules\bluebird\js\release\promise.js:547:31)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:604:18)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span></span><br><span class="line"><span class="string">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span></span><br><span class="line"><span class="string">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:617:21)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span></span><br><span class="line"><span class="string">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span></span><br><span class="line"><span class="string">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\bluebird\js\release\nodeback.js:42:21</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\nunjucks\src\environment.js:41:5</span></span><br><span class="line"><span class="string">    at RawTask.call (D:\blog\node_modules\asap\asap.js:40:19)</span></span><br><span class="line"><span class="string">    at flush (D:\blog\node_modules\asap\raw.js:50:29)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解決方法-1"><a href="#解決方法-1" class="headerlink" title="解決方法"></a>解決方法</h3><p>我目前只能建立新 .md 檔案，並手動貼上模板，md. 檔案中 title 的內容依然需要以引號包裹才可避免發生其他錯誤。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>推測是 Hexo 在解析文章 front_matter 時是視為 yaml，遇到語法相關字元會有其預設的判定規範。遇到類似問題時都先試試用引號包裹，程式應該會將引號包裹內容當成字串處理。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>自己試的，看 log 猜的</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>Error</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Error</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo Blog 02：更換 Hexo 主題</title>
     <url>/Hexo-Blog-02%EF%BC%9A%E6%9B%B4%E6%8F%9B-Hexo-%E4%B8%BB%E9%A1%8C/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><a href="/Hexo-Blog-01%EF%BC%9A%E4%BD%BF%E7%94%A8-Hexo-%E8%BF%85%E9%80%9F%E5%9C%A8-GitHub-Pages-%E5%B1%95%E9%96%8B-Blog-%E6%97%85%E7%A8%8B/" title="Hexo Blog 01：使用 Hexo 迅速在 GitHub Pages 展開 Blog 旅程">先前的文章</a>  最後列了一些使用 Hexo Blog 要解決的問題，最重要的應該就是更換主題了，因為要擴充功能什麼的都是透過更改主題的設定實踐。
@@ -101,31 +144,33 @@
 <li>依照 <a href="https://theme-next.js.org/docs/getting-started/configuration.html">Alternate Theme Config</a> 方式來設定 NexT 的 config</li>
 </ul>
 <h2 id="建置流程"><a href="#建置流程" class="headerlink" title="建置流程"></a>建置流程</h2><ol>
-<li>下載 NexT 主題至 Hexo Blog 專案</li>
-</ol>
+<li><p>在 Hexo Blog 專案安裝 NexT 主題</p>
 <p>command line 進入 Hexo Blog 專案執行：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>修改 Hexo Blog 專案根目錄中的 <code>_config.yml</code> 檔案</li>
-</ol>
+<p>我的版本：v8.13.2</p>
+</li>
+<li><p>修改 Hexo Blog 專案根目錄中的 <code>_config.yml</code> 檔案</p>
 <p>將 <code>theme:</code> 的值由原先的 <code>landscape</code> 改成 <code>next</code>：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span> <span class="comment">#landscape</span></span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>於 Hexo Blog 專案根目錄建立 <code>_config.next.yml</code> 檔案</li>
-<li>填入 <code>_config.next.yml</code> 的預設資料</li>
-</ol>
+
+</li>
+<li><p>於 Hexo Blog 專案根目錄建立 <code>_config.next.yml</code> 檔案</p>
+</li>
+<li><p>填入 <code>_config.next.yml</code> 的預設資料</p>
 <p>command line 進入 Hexo Blog 專案執行：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> node_modules/hexo-theme-next/_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
 
-<ol start="5">
-<li>重新部署 Blog</li>
-</ol>
+
+</li>
+<li><p>重新部署 Blog</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
 
-<ol start="6">
-<li>瀏覽 Blog 檢查主題是否更新</li>
+
+</li>
+<li><p>瀏覽 Blog 檢查主題是否更新</p>
+</li>
 </ol>
 <h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>就是基本的下載跟修改設定檔，不過看到更新後的 Blog 還是有些發現：</p>
 <ul>
@@ -141,51 +186,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo Debug 01：Hexo 文章 title 含特殊或功能字元引發錯誤</title>
-    <url>/Hexo-Debug-01%EF%BC%9A%E6%96%87%E7%AB%A0-title-%E5%90%AB%E7%89%B9%E6%AE%8A%E6%88%96%E5%8A%9F%E8%83%BD%E5%AD%97%E5%85%83%E5%BC%95%E7%99%BC%E9%8C%AF%E8%AA%A4/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想要在文章標題開頭用些分類性標記，第一時間想到的是用 <code>[]</code> 包裹關鍵字，沒想到陸續發生了以下兩種錯誤，還好都還算是能繞開，不影響其他使用體驗。</p>
-<h2 id="情境一"><a href="#情境一" class="headerlink" title="情境一"></a>情境一</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol>
-<li><p>修改文章 title，使其包含 <code>[</code> 與 <code>]</code> 字元</p>
-</li>
-<li><p>使用本地預覽指令：</p>
-</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>無法正常顯示頁面</li>
-</ol>
-<h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">ERROR Process failed: _posts/[Hexo]-常用-Hexo-指令.md</span><br><span class="line">YAMLException: bad indentation of a mapping entry (1:15)</span><br><span class="line"></span><br><span class="line"> 1 | title: [Hexo] 常用 Hexo 指令</span><br><span class="line">-------------------^</span><br><span class="line"> 2 | <span class="built_in">date</span>: 2022-11-29 10:26:27</span><br><span class="line"> 3 | tags:</span><br><span class="line">    at generateError (D:\blog\node_modules\js-yaml\lib\loader.js:183:10)</span><br><span class="line">    at throwError (D:\blog\node_modules\js-yaml\lib\loader.js:187:9)</span><br><span class="line">    at readBlockMapping (D:\blog\node_modules\js-yaml\lib\loader.js:1182:7)</span><br><span class="line">    at composeNode (D:\blog\node_modules\js-yaml\lib\loader.js:1441:12)</span><br><span class="line">    at readDocument (D:\blog\node_modules\js-yaml\lib\loader.js:1625:3)</span><br><span class="line">    at loadDocuments (D:\blog\node_modules\js-yaml\lib\loader.js:1688:5)</span><br><span class="line">    at Object.load (D:\blog\node_modules\js-yaml\lib\loader.js:1714:19)</span><br><span class="line">    at parseYAML (D:\blog\node_modules\hexo-front-matter\lib\front_matter.js:69:23)</span><br><span class="line">    at parse (D:\blog\node_modules\hexo-front-matter\lib\front_matter.js:50:12)</span><br><span class="line">    at D:\blog\node_modules\hexo\lib\plugins\processor\post.js:93:18</span><br><span class="line">    at tryCatcher (D:\blog\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\node_modules\bluebird\js\release\promise.js:544:35)</span><br><span class="line">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at PromiseArray._resolve (D:\blog\node_modules\bluebird\js\release\promise_array.js:127:19)</span><br><span class="line">    at PromiseArray._promiseFulfilled (D:\blog\node_modules\bluebird\js\release\promise_array.js:145:14)</span><br><span class="line">    at PromiseArray._iterate (D:\blog\node_modules\bluebird\js\release\promise_array.js:115:31)</span><br><span class="line">    at PromiseArray.init [as _init] (D:\blog\node_modules\bluebird\js\release\promise_array.js:79:10)</span><br><span class="line">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:601:21)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span><br></pre></td></tr></table></figure>
-
-<h3 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h3><p>將 md. 檔案中 title 的內容以引號包裹可避免發生此錯誤：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">title: &#x27;[Hexo] title 包含特殊字元引發錯誤&#x27;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="情境二"><a href="#情境二" class="headerlink" title="情境二"></a>情境二</h2><h3 id="流程-1"><a href="#流程-1" class="headerlink" title="流程"></a>流程</h3><ol>
-<li>使用建立新文章指令建立 title 包含 <code>[</code> 與 <code>]</code> 字元的文章：</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&#x27;[Hexo] title 包含特殊字元引發錯誤&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>文章建立失敗</li>
-</ol>
-<h3 id="log-1"><a href="#log-1" class="headerlink" title="log"></a>log</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">YAMLException: bad indentation of a mapping entry (1:15)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> 1 | title: [Hexo] title 包含特殊字元引發錯誤</span></span><br><span class="line"><span class="string">-------------------^</span></span><br><span class="line"><span class="string"> 2 | date: 2022-11-29 04:11:40</span></span><br><span class="line"><span class="string"> 3 | tags:</span></span><br><span class="line"><span class="string">    at generateError (D:\blog\node_modules\js-yaml\lib\loader.js:183:10)</span></span><br><span class="line"><span class="string">    at throwError (D:\blog\node_modules\js-yaml\lib\loader.js:187:9)</span></span><br><span class="line"><span class="string">    at readBlockMapping (D:\blog\node_modules\js-yaml\lib\loader.js:1182:7)</span></span><br><span class="line"><span class="string">    at composeNode (D:\blog\node_modules\js-yaml\lib\loader.js:1441:12)</span></span><br><span class="line"><span class="string">    at readDocument (D:\blog\node_modules\js-yaml\lib\loader.js:1625:3)</span></span><br><span class="line"><span class="string">    at loadDocuments (D:\blog\node_modules\js-yaml\lib\loader.js:1688:5)</span></span><br><span class="line"><span class="string">    at load (D:\blog\node_modules\js-yaml\lib\loader.js:1714:19)</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\hexo\lib\hexo\post.js:282:63</span></span><br><span class="line"><span class="string">    at tryCatcher (D:\blog\node_modules\bluebird\js\release\util.js:16:23)</span></span><br><span class="line"><span class="string">    at Promise._settlePromiseFromHandler (D:\blog\node_modules\bluebird\js\release\promise.js:547:31)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:604:18)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span></span><br><span class="line"><span class="string">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span></span><br><span class="line"><span class="string">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:617:21)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span></span><br><span class="line"><span class="string">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span></span><br><span class="line"><span class="string">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\bluebird\js\release\nodeback.js:42:21</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\nunjucks\src\environment.js:41:5</span></span><br><span class="line"><span class="string">    at RawTask.call (D:\blog\node_modules\asap\asap.js:40:19)</span></span><br><span class="line"><span class="string">    at flush (D:\blog\node_modules\asap\raw.js:50:29)</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="解決方法-1"><a href="#解決方法-1" class="headerlink" title="解決方法"></a>解決方法</h3><p>我目前只能建立新 .md 檔案，並手動貼上模板，md. 檔案中 title 的內容依然需要以引號包裹才可避免發生其他錯誤。</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>推測是 Hexo 在解析文章 front_matter 時是視為 yaml，遇到語法相關字元會有其預設的判定規範。遇到類似問題時都先試試用引號包裹，程式應該會將引號包裹內容當成字串處理。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>自己試的，看 log 猜的</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>Error</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Error</tag>
       </tags>
   </entry>
   <entry>
