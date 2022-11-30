@@ -237,7 +237,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-11-30 12:40:58" itemprop="dateModified" datetime="2022-11-30T12:40:58+08:00">2022-11-30</time>
+      <time title="修改時間：2022-11-30 13:59:32" itemprop="dateModified" datetime="2022-11-30T13:59:32+08:00">2022-11-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -260,14 +260,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">文章字數：</span>
-      <span>383</span>
+      <span>498</span>
     </span>
     <span class="post-meta-item" title="所需閱讀時間">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-      <span>1 分鐘</span>
+      <span>2 分鐘</span>
     </span>
 </div>
 
@@ -280,10 +280,10 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><a href="/Hexo-Blog-01%EF%BC%9A%E4%BD%BF%E7%94%A8-Hexo-%E8%BF%85%E9%80%9F%E5%9C%A8-GitHub-Pages-%E5%B1%95%E9%96%8B-Blog-%E6%97%85%E7%A8%8B/" title="Hexo Blog 01：使用 Hexo 迅速在 GitHub Pages 展開 Blog 旅程">先前的文章</a>  最後列了一些使用 Hexo Blog 要解決的問題，最重要的應該就是更換主題了，因為要擴充功能什麼的都是透過更改主題的設定實踐。
 
-<p>人工在網上繞了圈後，發現最多人拿來作練習的主題是 <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">NexT</a> ，為了少走彎路，我首次換的主題也決定是它了，然而我發現 NexT 官方有新的推薦用法，先人的文章卻都還沒採用，因此我決定照官方推薦方式實踐。</p>
+<p>人工在網上繞了圈後，發現最多人拿來作練習的主題是 <a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT</a> ，為了少走彎路，我首次換的主題也決定是它了，然而我發現 NexT 官方有新的推薦用法，先人的文章卻都還沒採用，因此我決定照官方推薦方式實踐。</p>
 <h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><ul>
 <li>將預設的 landscape 主題換成 NexT</li>
-<li>依照 <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/configuration.html">Alternate Theme Config</a> 方式來設定 NexT 的 config</li>
+<li>依照官方推薦的 <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/configuration.html">Alternate Theme Config</a> 方式來設定 NexT 的 config</li>
 </ul>
 <h2 id="建置流程"><a href="#建置流程" class="headerlink" title="建置流程"></a>建置流程</h2><ol>
 <li><p>在 Hexo Blog 專案安裝 NexT 主題</p>
@@ -299,12 +299,13 @@
 
 </li>
 <li><p>於 Hexo Blog 專案根目錄建立 <code>_config.next.yml</code> 檔案</p>
+<p><code>_config.next.yml</code> 將作為本專案中 NexT 主題的 config，Hexo 會優先讀取此檔案中的設定。</p>
 </li>
-<li><p>填入 <code>_config.next.yml</code> 的預設資料</p>
+<li><p>複製 NexT 原始 config 的內容填入 <code>_config.next.yml</code></p>
 <p>command line 進入 Hexo Blog 專案執行：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> node_modules/hexo-theme-next/_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
 
-
+<p>之後要自定義主題設定只會修改 <code>_config.next.yml</code>，而不會直接改動任何 NexT 的檔案，這就是目前官方推薦的使用方式，這樣 NexT 之後做版本升級時，使用者的改動才不會影響程序，或是自定義的內容被覆蓋而遺失。</p>
 </li>
 <li><p>重新部署 Blog</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
