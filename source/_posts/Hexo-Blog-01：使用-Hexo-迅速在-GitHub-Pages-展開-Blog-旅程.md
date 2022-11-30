@@ -128,7 +128,7 @@ categories:
 5. 安裝 [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
 
    ```sh
-   $ npm install hexo-deployer-git --save
+   npm install hexo-deployer-git --save
    ```
 
    我的版本：v3.0.0
@@ -154,7 +154,7 @@ categories:
 7. 執行快速部署指令
 
    ```sh
-   $ hexo clean && hexo deploy
+   hexo clean && hexo deploy
    ```
 
 
