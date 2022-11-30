@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo Blog 02：更換 Hexo 主題，初探 NexT</title>
+    <url>/Hexo-Blog-02%EF%BC%9A%E6%9B%B4%E6%8F%9B-Hexo-%E4%B8%BB%E9%A1%8C%EF%BC%8C%E5%88%9D%E6%8E%A2-NexT/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><a href="/Hexo-Blog-01%EF%BC%9A%E4%BD%BF%E7%94%A8-Hexo-%E8%BF%85%E9%80%9F%E5%9C%A8-GitHub-Pages-%E5%B1%95%E9%96%8B-Blog-%E6%97%85%E7%A8%8B/" title="Hexo Blog 01：使用 Hexo 迅速在 GitHub Pages 展開 Blog 旅程">先前的文章</a>  最後列了一些使用 Hexo Blog 要解決的問題，最重要的應該就是更換主題了，因為要擴充功能什麼的都是透過更改主題的設定實踐。
+
+<p>人工在網上繞了圈後，發現最多人拿來作練習的主題是 <a href="https://theme-next.js.org/">NexT</a> ，為了少走彎路，我首次換的主題也決定是它了，然而我發現 NexT 官方有新的推薦用法，先人的文章卻都還沒採用，因此我決定照官方推薦方式實踐。</p>
+<h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><ul>
+<li>將預設的 landscape 主題換成 NexT</li>
+<li>依照官方推薦的 <a href="https://theme-next.js.org/docs/getting-started/configuration.html">Alternate Theme Config</a> 方式來設定 NexT 的 config</li>
+</ul>
+<h2 id="建置流程"><a href="#建置流程" class="headerlink" title="建置流程"></a>建置流程</h2><ol>
+<li><p>在 Hexo Blog 專案安裝 NexT 主題</p>
+<p>command line 進入 Hexo Blog 專案執行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+
+<p>我的版本：v8.13.2</p>
+</li>
+<li><p>修改 Hexo Blog 專案根目錄中的 <code>_config.yml</code> 檔案</p>
+<p>將 <code>theme:</code> 的值由原先的 <code>landscape</code> 改成 <code>next</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span> <span class="comment">#landscape</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>於 Hexo Blog 專案根目錄建立 <code>_config.next.yml</code> 檔案</p>
+<p><code>_config.next.yml</code> 將作為本專案中 NexT 主題的 config，Hexo 會優先讀取此檔案中的設定。</p>
+</li>
+<li><p>複製 NexT 原始 config 的內容填入 <code>_config.next.yml</code></p>
+<p>command line 進入 Hexo Blog 專案執行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> node_modules/hexo-theme-next/_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
+
+<p>之後要自定義主題設定只會修改 <code>_config.next.yml</code>，而不會直接改動任何 NexT 的檔案，這就是目前官方推薦的使用方式，這樣 NexT 之後做版本升級時，使用者的改動才不會影響程序，或是自定義的內容被覆蓋而遺失。</p>
+</li>
+<li><p>重新部署 Blog</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>瀏覽 Blog 檢查主題是否更新</p>
+</li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>就是基本的下載跟修改設定檔，不過看到更新後的 Blog 還是有些發現：</p>
+<ul>
+<li>缺了各文章瀏覽次數</li>
+<li>缺了文章字數統計</li>
+</ul>
+<p>關卡還是滿多的，繼續加油吧！</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo Blog 01：使用 Hexo 迅速在 GitHub Pages 展開 Blog 旅程</title>
     <url>/Hexo-Blog-01%EF%BC%9A%E4%BD%BF%E7%94%A8-Hexo-%E8%BF%85%E9%80%9F%E5%9C%A8-GitHub-Pages-%E5%B1%95%E9%96%8B-Blog-%E6%97%85%E7%A8%8B/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自從成為碼農後已經用 <a href="https://markdown.tw/">Markdown</a> 做了很久的筆記，之前聽朋友說 <a href="https://hexo.io/zh-tw/">Hexo</a> 能直接把 Markdown 檔案變成 Blog 文章，想想就覺得心動，這樣日常做筆記之餘還能有所產出。感覺做筆記時心態會更認真，不過原本只是重點搬運工，之後還要思考文章的可讀性，以及如何才能幫助到真正需要這些資訊的人等等。</p>
@@ -81,62 +137,6 @@
 <h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>2022&#x2F;11&#x2F;23 成功建置<a href="https://wcw0310.github.io/">本 Blog</a></p>
 <p>如果你平常也在用 Markdown 做些技術筆記，不妨一起嘗試 Hexo，讓連自己都很少看的筆記成為 Blog 文章來服務網路上遇到同樣問題的人們吧！</p>
 <p>願各位付出的精力都能結出甜美的果實。</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo Blog 02：更換 Hexo 主題，初探 NexT</title>
-    <url>/Hexo-Blog-02%EF%BC%9A%E6%9B%B4%E6%8F%9B-Hexo-%E4%B8%BB%E9%A1%8C%EF%BC%8C%E5%88%9D%E6%8E%A2-NexT/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><a href="/Hexo-Blog-01%EF%BC%9A%E4%BD%BF%E7%94%A8-Hexo-%E8%BF%85%E9%80%9F%E5%9C%A8-GitHub-Pages-%E5%B1%95%E9%96%8B-Blog-%E6%97%85%E7%A8%8B/" title="Hexo Blog 01：使用 Hexo 迅速在 GitHub Pages 展開 Blog 旅程">先前的文章</a>  最後列了一些使用 Hexo Blog 要解決的問題，最重要的應該就是更換主題了，因為要擴充功能什麼的都是透過更改主題的設定實踐。
-
-<p>人工在網上繞了圈後，發現最多人拿來作練習的主題是 <a href="https://theme-next.js.org/">NexT</a> ，為了少走彎路，我首次換的主題也決定是它了，然而我發現 NexT 官方有新的推薦用法，先人的文章卻都還沒採用，因此我決定照官方推薦方式實踐。</p>
-<h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><ul>
-<li>將預設的 landscape 主題換成 NexT</li>
-<li>依照官方推薦的 <a href="https://theme-next.js.org/docs/getting-started/configuration.html">Alternate Theme Config</a> 方式來設定 NexT 的 config</li>
-</ul>
-<h2 id="建置流程"><a href="#建置流程" class="headerlink" title="建置流程"></a>建置流程</h2><ol>
-<li><p>在 Hexo Blog 專案安裝 NexT 主題</p>
-<p>command line 進入 Hexo Blog 專案執行：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
-
-<p>我的版本：v8.13.2</p>
-</li>
-<li><p>修改 Hexo Blog 專案根目錄中的 <code>_config.yml</code> 檔案</p>
-<p>將 <code>theme:</code> 的值由原先的 <code>landscape</code> 改成 <code>next</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span> <span class="comment">#landscape</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>於 Hexo Blog 專案根目錄建立 <code>_config.next.yml</code> 檔案</p>
-<p><code>_config.next.yml</code> 將作為本專案中 NexT 主題的 config，Hexo 會優先讀取此檔案中的設定。</p>
-</li>
-<li><p>複製 NexT 原始 config 的內容填入 <code>_config.next.yml</code></p>
-<p>command line 進入 Hexo Blog 專案執行：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> node_modules/hexo-theme-next/_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
-
-<p>之後要自定義主題設定只會修改 <code>_config.next.yml</code>，而不會直接改動任何 NexT 的檔案，這就是目前官方推薦的使用方式，這樣 NexT 之後做版本升級時，使用者的改動才不會影響程序，或是自定義的內容被覆蓋而遺失。</p>
-</li>
-<li><p>重新部署 Blog</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>瀏覽 Blog 檢查主題是否更新</p>
-</li>
-</ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>就是基本的下載跟修改設定檔，不過看到更新後的 Blog 還是有些發現：</p>
-<ul>
-<li>缺了各文章瀏覽次數</li>
-<li>缺了文章字數統計</li>
-</ul>
-<p>關卡還是滿多的，繼續加油吧！</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
