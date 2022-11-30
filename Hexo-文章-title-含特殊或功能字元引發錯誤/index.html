@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wcw0310.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言想要在文章標題開頭用些分類性標記，第一時間想到的是用 [] 包裹關鍵字，沒想到陸續發生了以下兩種錯誤，還好都還算是能繞開，不影響其他使用體驗。 情境一流程 修改文章 title，使其包含 [ 與 ] 字元  使用本地預覽指令：   1$ hexo server   無法正常顯示頁面  log1234567891011121314151617181920212223242526272829303">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 文章 title 含特殊或功能字元引發錯誤">
+<meta property="og:url" content="https://wcw0310.github.io/Hexo-%E6%96%87%E7%AB%A0-title-%E5%90%AB%E7%89%B9%E6%AE%8A%E6%88%96%E5%8A%9F%E8%83%BD%E5%AD%97%E5%85%83%E5%BC%95%E7%99%BC%E9%8C%AF%E8%AA%A4/">
+<meta property="og:site_name" content="Hi I&#39;m WCW!">
+<meta property="og:description" content="前言想要在文章標題開頭用些分類性標記，第一時間想到的是用 [] 包裹關鍵字，沒想到陸續發生了以下兩種錯誤，還好都還算是能繞開，不影響其他使用體驗。 情境一流程 修改文章 title，使其包含 [ 與 ] 字元  使用本地預覽指令：   1$ hexo server   無法正常顯示頁面  log1234567891011121314151617181920212223242526272829303">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-11-29T04:29:00.000Z">
+<meta property="article:modified_time" content="2022-11-30T02:23:24.231Z">
+<meta property="article:author" content="WCW0310">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Error">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wcw0310.github.io/Hexo-%E6%96%87%E7%AB%A0-title-%E5%90%AB%E7%89%B9%E6%AE%8A%E6%88%96%E5%8A%9F%E8%83%BD%E5%AD%97%E5%85%83%E5%BC%95%E7%99%BC%E9%8C%AF%E8%AA%A4/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wcw0310.github.io/Hexo-%E6%96%87%E7%AB%A0-title-%E5%90%AB%E7%89%B9%E6%AE%8A%E6%88%96%E5%8A%9F%E8%83%BD%E5%AD%97%E5%85%83%E5%BC%95%E7%99%BC%E9%8C%AF%E8%AA%A4/","path":"Hexo-文章-title-含特殊或功能字元引發錯誤/","title":"Hexo 文章 title 含特殊或功能字元引發錯誤"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo 文章 title 含特殊或功能字元引發錯誤 | Hi I'm WCW!</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hi I'm WCW!</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">WOW! WCW! WOW!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%85%E5%A2%83%E4%B8%80"><span class="nav-number">2.</span> <span class="nav-text">情境一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#log"><span class="nav-number">2.2.</span> <span class="nav-text">log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">解決方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%85%E5%A2%83%E4%BA%8C"><span class="nav-number">3.</span> <span class="nav-text">情境二</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B-1"><span class="nav-number">3.1.</span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#log-1"><span class="nav-number">3.2.</span> <span class="nav-text">log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95-1"><span class="nav-number">3.3.</span> <span class="nav-text">解決方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">WCW0310</p>
+  <div class="site-description" itemprop="description">How I waste my time</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span>
+      </div>
+  </nav>
+</div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://wcw0310.github.io/Hexo-%E6%96%87%E7%AB%A0-title-%E5%90%AB%E7%89%B9%E6%AE%8A%E6%88%96%E5%8A%9F%E8%83%BD%E5%AD%97%E5%85%83%E5%BC%95%E7%99%BC%E9%8C%AF%E8%AA%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="WCW0310">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi I'm WCW!">
+      <meta itemprop="description" content="How I waste my time">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo 文章 title 含特殊或功能字元引發錯誤 | Hi I'm WCW!">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo 文章 title 含特殊或功能字元引發錯誤
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2022-11-29 12:29:00" itemprop="dateCreated datePublished" datetime="2022-11-29T12:29:00+08:00">2022-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2022-11-30 10:23:24" itemprop="dateModified" datetime="2022-11-30T10:23:24+08:00">2022-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo/Error/" itemprop="url" rel="index"><span itemprop="name">Error</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>918</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>3 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想要在文章標題開頭用些分類性標記，第一時間想到的是用 <code>[]</code> 包裹關鍵字，沒想到陸續發生了以下兩種錯誤，還好都還算是能繞開，不影響其他使用體驗。</p>
+<h2 id="情境一"><a href="#情境一" class="headerlink" title="情境一"></a>情境一</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol>
+<li><p>修改文章 title，使其包含 <code>[</code> 與 <code>]</code> 字元</p>
+</li>
+<li><p>使用本地預覽指令：</p>
+</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>無法正常顯示頁面</li>
+</ol>
+<h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">ERROR Process failed: _posts/[Hexo]-常用-Hexo-指令.md</span><br><span class="line">YAMLException: bad indentation of a mapping entry (1:15)</span><br><span class="line"></span><br><span class="line"> 1 | title: [Hexo] 常用 Hexo 指令</span><br><span class="line">-------------------^</span><br><span class="line"> 2 | <span class="built_in">date</span>: 2022-11-29 10:26:27</span><br><span class="line"> 3 | tags:</span><br><span class="line">    at generateError (D:\blog\node_modules\js-yaml\lib\loader.js:183:10)</span><br><span class="line">    at throwError (D:\blog\node_modules\js-yaml\lib\loader.js:187:9)</span><br><span class="line">    at readBlockMapping (D:\blog\node_modules\js-yaml\lib\loader.js:1182:7)</span><br><span class="line">    at composeNode (D:\blog\node_modules\js-yaml\lib\loader.js:1441:12)</span><br><span class="line">    at readDocument (D:\blog\node_modules\js-yaml\lib\loader.js:1625:3)</span><br><span class="line">    at loadDocuments (D:\blog\node_modules\js-yaml\lib\loader.js:1688:5)</span><br><span class="line">    at Object.load (D:\blog\node_modules\js-yaml\lib\loader.js:1714:19)</span><br><span class="line">    at parseYAML (D:\blog\node_modules\hexo-front-matter\lib\front_matter.js:69:23)</span><br><span class="line">    at parse (D:\blog\node_modules\hexo-front-matter\lib\front_matter.js:50:12)</span><br><span class="line">    at D:\blog\node_modules\hexo\lib\plugins\processor\post.js:93:18</span><br><span class="line">    at tryCatcher (D:\blog\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\node_modules\bluebird\js\release\promise.js:544:35)</span><br><span class="line">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at PromiseArray._resolve (D:\blog\node_modules\bluebird\js\release\promise_array.js:127:19)</span><br><span class="line">    at PromiseArray._promiseFulfilled (D:\blog\node_modules\bluebird\js\release\promise_array.js:145:14)</span><br><span class="line">    at PromiseArray._iterate (D:\blog\node_modules\bluebird\js\release\promise_array.js:115:31)</span><br><span class="line">    at PromiseArray.init [as _init] (D:\blog\node_modules\bluebird\js\release\promise_array.js:79:10)</span><br><span class="line">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:601:21)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span><br></pre></td></tr></table></figure>
+
+<h3 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h3><p>將 md. 檔案中 title 的內容以引號包裹可避免發生此錯誤：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title: &#x27;[Hexo] title 包含特殊字元引發錯誤&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="情境二"><a href="#情境二" class="headerlink" title="情境二"></a>情境二</h2><h3 id="流程-1"><a href="#流程-1" class="headerlink" title="流程"></a>流程</h3><ol>
+<li>使用建立新文章指令建立 title 包含 <code>[</code> 與 <code>]</code> 字元的文章：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&#x27;[Hexo] title 包含特殊字元引發錯誤&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>文章建立失敗</li>
+</ol>
+<h3 id="log-1"><a href="#log-1" class="headerlink" title="log"></a>log</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">YAMLException: bad indentation of a mapping entry (1:15)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> 1 | title: [Hexo] title 包含特殊字元引發錯誤</span></span><br><span class="line"><span class="string">-------------------^</span></span><br><span class="line"><span class="string"> 2 | date: 2022-11-29 04:11:40</span></span><br><span class="line"><span class="string"> 3 | tags:</span></span><br><span class="line"><span class="string">    at generateError (D:\blog\node_modules\js-yaml\lib\loader.js:183:10)</span></span><br><span class="line"><span class="string">    at throwError (D:\blog\node_modules\js-yaml\lib\loader.js:187:9)</span></span><br><span class="line"><span class="string">    at readBlockMapping (D:\blog\node_modules\js-yaml\lib\loader.js:1182:7)</span></span><br><span class="line"><span class="string">    at composeNode (D:\blog\node_modules\js-yaml\lib\loader.js:1441:12)</span></span><br><span class="line"><span class="string">    at readDocument (D:\blog\node_modules\js-yaml\lib\loader.js:1625:3)</span></span><br><span class="line"><span class="string">    at loadDocuments (D:\blog\node_modules\js-yaml\lib\loader.js:1688:5)</span></span><br><span class="line"><span class="string">    at load (D:\blog\node_modules\js-yaml\lib\loader.js:1714:19)</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\hexo\lib\hexo\post.js:282:63</span></span><br><span class="line"><span class="string">    at tryCatcher (D:\blog\node_modules\bluebird\js\release\util.js:16:23)</span></span><br><span class="line"><span class="string">    at Promise._settlePromiseFromHandler (D:\blog\node_modules\bluebird\js\release\promise.js:547:31)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:604:18)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span></span><br><span class="line"><span class="string">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span></span><br><span class="line"><span class="string">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise (D:\blog\node_modules\bluebird\js\release\promise.js:617:21)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise0 (D:\blog\node_modules\bluebird\js\release\promise.js:649:10)</span></span><br><span class="line"><span class="string">    at Promise._settlePromises (D:\blog\node_modules\bluebird\js\release\promise.js:729:18)</span></span><br><span class="line"><span class="string">    at Promise._fulfill (D:\blog\node_modules\bluebird\js\release\promise.js:673:18)</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\bluebird\js\release\nodeback.js:42:21</span></span><br><span class="line"><span class="string">    at D:\blog\node_modules\nunjucks\src\environment.js:41:5</span></span><br><span class="line"><span class="string">    at RawTask.call (D:\blog\node_modules\asap\asap.js:40:19)</span></span><br><span class="line"><span class="string">    at flush (D:\blog\node_modules\asap\raw.js:50:29)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解決方法-1"><a href="#解決方法-1" class="headerlink" title="解決方法"></a>解決方法</h3><p>我目前只能建立新 .md 檔案，並手動貼上模板，md. 檔案中 title 的內容依然需要以引號包裹才可避免發生其他錯誤。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>推測是 Hexo 在解析文章 front_matter 時是視為 yaml，遇到語法相關字元會有其預設的判定規範。遇到類似問題時都先試試用引號包裹，程式應該會將引號包裹內容當成字串處理。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>自己試的，看 log 猜的</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/Error/" rel="tag"># Error</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E5%B8%B8%E7%94%A8-Hexo-%E6%8C%87%E4%BB%A4/" rel="prev" title="常用 Hexo 指令">
+                  <i class="fa fa-chevron-left"></i> 常用 Hexo 指令
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E6%9B%B4%E6%8F%9B-Hexo-%E4%B8%BB%E9%A1%8C/" rel="next" title="更換 Hexo 主題">
+                  更換 Hexo 主題 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WCW0310</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="總字數">2k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8 分鐘</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+
+</body>
+</html>
