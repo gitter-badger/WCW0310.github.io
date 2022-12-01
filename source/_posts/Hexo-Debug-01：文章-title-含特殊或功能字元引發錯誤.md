@@ -68,7 +68,7 @@ YAMLException: bad indentation of a mapping entry (1:15)
 
 ### 解決方法
 
-將 md. 檔案中 title 的內容以引號包裹可避免發生此錯誤：
+將 md. 檔案最上方 front_matter 中 title 的內容以引號包裹可避免發生此錯誤：
 
 ```markdown
 title: '[Hexo] title 包含特殊字元引發錯誤'
@@ -125,13 +125,15 @@ YAMLException: bad indentation of a mapping entry (1:15)
 
 ### 解決方法
 
-我目前只能建立新 .md 檔案，並手動貼上模板，md. 檔案中 title 的內容依然需要以引號包裹才可避免發生其他錯誤。
+我目前只能手動建立新 .md 檔案，並貼上模板，md. 檔案中 title 的內容依然需要以引號包裹才可避免發生其他錯誤。
 
 
 
 ## 結語
 
-推測是 Hexo 在解析文章 front_matter 時是視為 yaml，遇到語法相關字元會有其預設的判定規範。遇到類似問題時都先試試用引號包裹，程式應該會將引號包裹內容當成字串處理。
+推測是 Hexo 在解析文章 front_matter 時是視為 yaml，遇到語法相關字元會有其預設的規範。遇到類似問題時都先試試用引號包裹，程式應該會將引號包裹內容當成字串處理。
+
+不過最後我是選擇不使用特殊字元了，畢竟也不是很美觀 XD。
 
 
 

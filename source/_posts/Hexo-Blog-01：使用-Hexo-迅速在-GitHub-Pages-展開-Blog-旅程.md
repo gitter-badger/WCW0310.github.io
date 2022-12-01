@@ -23,11 +23,11 @@ categories:
 
 ## 建置流程
 
-都是按照以下官方文檔進行操作：
+按照以下官方文檔進行操作：
 
-[Hexo 文件](https://hexo.io/zh-tw/docs/)
+* [文件 | Hexo](https://hexo.io/zh-tw/docs/)
 
-[在 GitHub Pages 上部署 Hexo](https://hexo.io/zh-tw/docs/github-pages)
+* [在 GitHub Pages 上部署 Hexo](https://hexo.io/zh-tw/docs/github-pages)
 
 不過官方文檔有些步驟或補充說明讓我有點混淆，本文作為筆記會盡量記錄所有必須的操作步驟。
 
@@ -37,13 +37,29 @@ categories:
 
 * 安裝 [git](https://git-scm.com/)
 
-   我的版本：git version 2.24.1.windows.2
+   我的版本：
+
+   ```sh
+   $ git --version
+   git version 2.24.1.windows.2
+   ```
+
+
 
 * 安裝 [Node.js](https://nodejs.org/en/)
 
-   我的版本：v18.12.1
+   我的版本：
+
+   ```sh
+   $ node --version
+   v18.12.1
+   ```
+
+
 
 * 註冊 [GitHub](https://github.com/)
+
+
 
 所有安裝操作盡量以最新穩定版本為主。
 
@@ -51,16 +67,16 @@ categories:
 
 ### 主要操作
 
-1. 安裝 Hexo
+1. 安裝 Hexo：
 
    ```sh
-   npm install -g hexo-cli
+   $ npm install -g hexo-cli
    ```
 
    我的版本：
 
-   ```
-   hexo: 6.3.0
+   ```sh
+   $ hexo version
    hexo-cli: 4.3.0
    os: win32 10.0.19045
    node: 18.12.1
@@ -84,12 +100,12 @@ categories:
 
 
 
-2. 建立 Hexo Blog 專案
+2. 建立 Hexo Blog 專案，並安裝 Hexo 必要檔案：
 
    ```sh
-   hexo init <folder>
-   cd <folder>
-   npm install
+   $ hexo init <folder>
+   $ cd <folder>
+   $ npm install
    ```
 
    `<folder>` 換成自己想要的 Blog 專案名稱，我是直接學 [官網首頁](https://hexo.io/zh-tw/) 的範例取為 `blog`。
@@ -100,44 +116,44 @@ categories:
 
    `username` 為 GitHub 使用者名稱，請自行替換。
 
-   這樣其實是建立了一個 GitHub Pages。
+   這樣其實就是建立了一個 [GitHub Pages](https://pages.github.com) 專案。
 
 
 
-4. 將 Hexo Blog 專案 push 至 GitHub Pages 儲存庫的預設分支
+4. 將 Hexo Blog 專案 push 至 GitHub Pages 儲存庫的預設分支：
 
-   最好先將 Hexo Blog 專案內的 `.git` 資料夾刪除，這樣就能直接照 GitHub 推薦方式 push，也不會遇到 branch 名稱不同的錯誤：
+   先將 Hexo Blog 專案內的 `.git` 資料夾刪除，再依照以下 GitHub 初始方式 push，才不會遇到因為 branch 名稱不同引發的錯誤或其他問題：
 
    ```sh
-   git init
-   git add .
-   git commit -m "first commit"
-   git branch -M main
-   git remote add origin https://github.com/<username>/<username>.github.io.git
-   git push -u origin main
+   $ git init
+   $ git add .
+   $ git commit -m "first commit"
+   $ git branch -M main
+   $ git remote add origin https://github.com/<username>/<username>.github.io.git
+   $ git push -u origin main
    ```
    
-   由於不知何時起 GitHub 要求以 token 執行 push 操作，這裡可能會遇到一些 GitHub 登入問題，在此提供之前踩坑後覺得有用的資訊：
+   **註：**由於不知何時起 GitHub 要求以 token 執行 push 操作，這裡可能會遇到一些 GitHub 登入問題，在此提供之前踩坑後覺得有用的資訊：
    
-   [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+   * [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
    
-   [GitHub - Personal Access Token & SourceTree](https://blog.csdn.net/caroline_wendy/article/details/119736105)
+   * [GitHub - Personal Access Token & SourceTree](https://blog.csdn.net/caroline_wendy/article/details/119736105)
 
 
 
 5. 安裝 [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
 
    ```sh
-   npm install hexo-deployer-git --save
+   $ npm install hexo-deployer-git --save
    ```
 
    我的版本：v3.0.0
    
-   Hexo 專門用來以 git 部署的工具
+   **註：**這是 Hexo 專門用來以 git 部署 Blog 網頁的工具。
 
 
 
-6. 更改 Hexo Blog 專案根目錄中 `_config.yml` 的 `deploy:` 部分
+6. 更改 Hexo Blog 專案根目錄中 `_config.yml` 的 `deploy:` 部分：
 
    ```yaml
    deploy:
@@ -147,31 +163,33 @@ categories:
      branch: gh-pages
    ```
 
-   這樣 Hexo 生成 Blog 畫面檔案後會 push 至 gh-pages
+   **註：**這樣 Hexo 生成 Blog 畫面檔案後會 push 至 `gh-pages` branch。
 
 
 
-7. 執行快速部署指令
+7. 執行快速部署指令：
 
    ```sh
-   hexo clean && hexo deploy
+   $ hexo clean && hexo deploy
    ```
+
+   **註：**clean 會清除先前生成的靜態網頁資料；deploy 就是部屬指令。
 
 
 
 8. 在 GitHub 專案頁面中設定 blog 畫面部署的 branch
 
-   進入 Settings (頁面上方) > Pages (頁面左方)
+   進入 Settings (頁面上方) > Pages (頁面左方)。
 
-   將 Branch 設為 gh-pages，點擊 Sava 儲存設定
+   將 Branch 設為 gh-pages，點擊 Sava 儲存設定。
 
-   這樣 GitHub Pages 才會將 gh-pages 中的內容作為網頁部署
+   **註：**這樣 GitHub Pages 才會將 gh-pages 中的內容作為網頁部署
 
 
 
 8. 瀏覽 `<GitHub 用戶名>.github.io` 檢查你的 Blog 能否運作
 
-   可能需要等待一下子
+   **註：**可能需要等待一下子。
 
 
 

@@ -25,19 +25,17 @@ categories:
 
 ## 建置流程
 
-1. 在 Hexo Blog 專案安裝 NexT 主題
-
-   command line 進入 Hexo Blog 專案執行：
+1. 在 Hexo Blog 專案內安裝 NexT 主題：
 
    ```sh
    $ npm install hexo-theme-next
    ```
-
+   
    我的版本：v8.13.2
 
 
 
-2. 修改 Hexo Blog 專案根目錄中的 `_config.yml` 檔案
+2. 設置 Hexo Blog 專案根目錄中的 `_config.yml` 檔案：
 
    將 `theme:` 的值由原先的 `landscape` 改成 `next`：
 
@@ -50,21 +48,21 @@ categories:
 
 
 
-3. 複製 NexT 原始 config 的內容至專案根目錄的 `_config.next.yml`
+3. 複製 NexT 原始 config 的內容至專案根目錄：
 
-   command line 進入 Hexo Blog 專案執行：
+   在 Hexo Blog 專案內執行：
 
    ```sh
-   cp node_modules/hexo-theme-next/_config.yml _config.next.yml
+   $ cp node_modules/hexo-theme-next/_config.yml _config.next.yml
    ```
 
-   `_config.next.yml` 將作為本專案中 NexT 主題的 config，Hexo 會優先讀取此檔案中的設定。
+   **註：**會生成 `_config.next.yml` 檔案，它將作為本專案中 NexT 主題的 config，Hexo 會優先讀取此檔案中的設定。
    
-   之後要自定義主題設定只會修改 `_config.next.yml`，而不會直接改動任何 NexT 的檔案，這就是目前官方推薦的使用方式，這樣 NexT 之後做版本升級時，使用者的改動才不會影響程序，或是自定義的內容被覆蓋而遺失。
+   **註：**之後要自定義主題設定只會修改 `_config.next.yml`，而不會直接改動任何 NexT 的檔案，這就是目前官方推薦的使用方式，這樣 NexT 之後做版本升級時，使用者的改動才不會影響程序，或是自定義的內容被覆蓋而遺失。
 
 
 
-4. 重新部署 Blog
+4. 重新部署 Blog：
 
    ```sh
    $ hexo clean && hexo deploy
