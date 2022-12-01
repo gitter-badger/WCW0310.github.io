@@ -21,6 +21,8 @@ categories:
 * 將預設的 landscape 主題換成 NexT
 * 依照官方推薦的 [Alternate Theme Config](https://theme-next.js.org/docs/getting-started/configuration.html) 方式來設定 NexT 的 config
 
+<!-- more -->
+
 
 
 ## 建置流程

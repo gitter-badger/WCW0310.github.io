@@ -12,6 +12,8 @@ categories:
 
 單純記錄我真的有用到的 Hexo 指令，並無其他厲害的延伸用法，真要查指令 [官方文件](https://hexo.io/zh-tw/docs/) 永遠是最好的選擇。
 
+<!-- more -->
+
 
 
 ## 初始化 blog 專案
