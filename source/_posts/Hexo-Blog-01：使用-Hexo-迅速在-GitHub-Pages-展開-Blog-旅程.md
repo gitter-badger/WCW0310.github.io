@@ -19,6 +19,8 @@ categories:
 * 使用 Hexo Blog 框架將 Markdown 文件輸出成精美 Blog
 * 以 [GitHub Pages](https://pages.github.com) 作為 Blog 網站的架設平台
 
+<!-- more -->
+
 
 
 ## 建置流程
